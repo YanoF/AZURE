@@ -1,0 +1,43 @@
+Create a Linux VM with the Azure CLI
+
+The Azure CLI includes the vm command to work with virtual machines in Azure. We can supply several subcommands to do specific tasks. The most common include:
+Create a Linux VM with the Azure CLI
+
+Sub-command 	Description
+create 		Create a new virtual machine
+deallocate 	Deallocate a virtual machine
+delete 		Delete a virtual machine
+list 		List the created virtual machines in your subscription
+open-port 	Open a specific network port for inbound traffic
+restart 	Restart a virtual machine
+show 		Get the details for a virtual machine
+start 		Start a stopped virtual machine
+stop 		Stop a running virtual machine
+update 		Update a property of a virtual machine
+
+Let's start with the first one: az vm create. This command is used to create a virtual machine in a resource group. There are several parameters you can pass to configure all the aspects of the new VM. The four parameters that must be supplied are:
+
+Parameter 	Description
+--resource-group 	The resource group that will own the virtual machine, use [sandbox Resource Group].
+--name 		The name of the virtual machine - must be unique within the resource group.
+--image 	The operating system image to use to create the VM.
+--location 	The region to place the VM in. Typically this would be close to the consumer of the VM. In this exercise, choose a location nearby from the following list.
+
+In addition, it's helpful to add the --verbose flag to see progress while the VM is being created.
+
+Create a Linux virtual machine
+
+Let's create a new Linux virtual machine. Execute the following command in Azure Cloud Shell to create an Ubuntu VM in the "West US" location.
+
+--------------------------------------------------------------------------------------
+
+az vm create \
+  --resource-group [sandbox resource group name] \
+  --location westus \
+  --name SampleVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --verbose
+
+  ------------------------------------------------------------------------------------
