@@ -41,3 +41,10 @@ az vm create \
   --verbose
 
   ------------------------------------------------------------------------------------
+
+When you create a virtual machine, it gets assigned a public IP address that is reachable over the Internet, and a private IP address used within the Azure data center. You get both of those values in the returning JSON block from the create command:
+
+
+ Connecting to the VM with SSH
+
+With the public IP address we can quickly test that the Linux VM is up and running using the Secure Shell (ssh) tool. Remember that we set our admin name to azureuser, so we have to specify that. Make sure to use the public IP address from your running instance.
