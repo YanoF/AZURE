@@ -48,3 +48,29 @@ When you create a virtual machine, it gets assigned a public IP address that is 
  Connecting to the VM with SSH
 
 With the public IP address we can quickly test that the Linux VM is up and running using the Secure Shell (ssh) tool. Remember that we set our admin name to azureuser, so we have to specify that. Make sure to use the public IP address from your running instance.
+
+
+Listing Images.
+You can get a list of the available VM images using the following command.
+
+az vm image list --output table
+
+
+Getting all images
+
+You can get a full list by adding the --all flag to the command. Since the list of images in the Marketplace is very large, it is helpful to filter the list with the --publisher, --sku or –-offer options.
+
+For example, try the following command to see all Wordpress images available:
+
+	az vm image list --sku Wordpress --output table --all
+
+Or this command to see all images provided by Microsoft.
+
+	az vm image list --publisher Microsoft --output table --all
+
+
+Location-specific images
+
+Some images are only available in certain locations. Try adding the --location [location] flag to the command to scope the results to ones available in the region where you want to create the virtual machine. For example, type the following into Azure Cloud Shell to get a list of images available in the eastus region.
+
+	az vm image list --location eastus --output table
